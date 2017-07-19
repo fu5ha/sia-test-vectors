@@ -5,8 +5,6 @@ import (
 	"flag"
 	"fmt"
 
-	"io/ioutil"
-
 	"github.com/NebulousLabs/Sia/crypto"
 	"github.com/NebulousLabs/Sia/modules"
 	"github.com/NebulousLabs/Sia/types"
@@ -76,5 +74,5 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	ioutil.WriteFile("testVectors.json", j, 0644)
+	fmt.Print(string(j))
 }
