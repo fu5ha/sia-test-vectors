@@ -41,7 +41,7 @@ func main() {
 	flag.BoolVar(&verbose, "v", false, "verbose?")
 	flag.Parse()
 	var testVectors TestVectors
-	testVectors.SeedStr = "paper hard ripple dwarf wise ski salute middle crouch stuff broom paper"
+	testVectors.SeedStr = "paper hard ripple dwarf wise ski salute middle crouch stuff broom"
 	testVectors.SeedBytes = []byte(testVectors.SeedStr)
 	testVectors.SeedHashed = modules.Seed(crypto.HashBytes(testVectors.SeedBytes))
 	testVectors.SeedEng, _ = modules.SeedToString(testVectors.SeedHashed, "english")
@@ -74,5 +74,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Print(string(j))
+	if !verbose {
+		fmt.Print(string(j))
+	}
 }
